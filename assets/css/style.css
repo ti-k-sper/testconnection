@@ -1,80 +1,169 @@
-/*----------------
-	RESET
-----------------*/
-
-html{
-	box-sizing: border-box;
-}
-
-*,*:before,*:after{
-	box-sizing: inherit;
-}
-
 body{
-	background-color: white;
-	font-family: Helvetica, sans-serif;
+	font: 16px/1.4em 'PT Sans', sans-serif;
+	color: #1c1c1c;
 }
 
-/*----------------
-	Mise en page
-----------------*/
-
-section.login-container{
-	display: flex;
-	position: fixed;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-	background: rgba(243,156,18,0.8); /* a = transparence de 0 à 1 (1 = opaque)*/
+p, ul{
+	margin: 0 0 1.5em;
 }
 
-section.login-container > div { /*on prend juste la div*/
-	width: 450px;
-	margin: auto;
-	padding: 20px;
-	text-align: center;
-	background: #eee;
-	border: 1px solid #ccc;
-	border-radius: 5px;
+article ul{
+	list-style: disc;
+	padding: 0 0 0 20px;
 }
 
-section.login-container form{
-	display: flex;
-	flex-direction: column;
+a{
+	color: #1D745A;
 }
 
-form input[type="password"],
-form input[type="text"],
-form button[type="submit"]{
-	width: 100%;
-	margin-bottom: 32px;
-	padding: 16px;
-	color: #333;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	outline: 0;
+h1{
+
 }
 
-form input[type="password"]:focus,
-form input[type="password"]:hover,
-form input[type="text"]:focus,
-form input[type="text"]:hover{
-	background-color: #ccc;
-}
-
-form button[type="submit"]{
+h2{
+	font-family: 'PT Serif', Serif;
+	font-size: 30px;
+	line-height: 1em;
+	margin: 0 0 0.4em;
 	font-weight: bold;
-	color: #black;
+}
+
+/* Layout */
+
+.wrapper{
+	
+}
+
+article{
+	border-bottom: 1px solid #d8d8d8;
+	padding: 10px 20px 0 20px;
+	margin: 10px 0;
+}
+
+/* header */
+
+header{
+	background: #1c1c1c;
+	padding: 15px 20px;
+}
+
+/*pour casser les floats */
+header:before,
+header:after{
+	content: "";
+	display: table;
+}
+
+header:after{
+	clear: both;
+}
+/* fin casse float */
+
+/* casser float internet explo 6 et  */
+header{
+	zoom: 1;
+}
+
+h1.logo a{
+	color: #d8d8d8;
+	text-decoration: none;
+	font-weight: bold;
 	text-transform: uppercase;
-	background-color: #e67e22;
+	font-size: 20px;
+	line-height: 22px;
+	float: left;
+	letter-spacing: 0.1em;
 }
 
-form button[type="submit"]:focus,
-form button[type="submit"]:hover{
-	background-color: #d35400;
+a.to_nav{
+	float: right;
+	color: #fff;
+	background: #4e4e4e;
+	text-decoration: none;
+	padding: 0 10px;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 22px;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	border-radius: 2px;
 }
 
-.danger {
-	border: 3px solid red !important;
+a.to_nav:hover,
+a.to_nav:focus{
+	color: #1c1c1c;
+	background: #ccc;
+}
+
+/* Menu */
+
+#primary_nav ul{
+	list-style: none;
+	background: #1c1c1c;
+	padding: 5px 0;
+}
+
+#primary_nav li a{
+	display: block;
+	padding: 0 20px;
+	color: #fff;
+	text-decoration: none;
+	letter-spacing: 0.1em;
+	line-height: 2em;
+	height: 2em;
+	border-bottom: 1px solid #383838;
+}
+
+#primary_nav li:last-child a{
+	border-bottom: none;
+}
+
+#primary_nav li a:hover,
+#primary_nav li a:focus{
+	color: #1c1c1c;
+	background: #ccc;
+}
+
+footer{
+	font-family: 'PT Serif', Serif;
+	font-style: italic;
+	text-align: center;
+	font-size: 14px;
+}
+
+/* Media queries */
+
+@media only screen and (min-width: 768px) {
+	/* bloquer largeur */
+	.wrapper{
+		position: relative;
+		width: 768px;
+		margin: auto;
+	}
+	/* disparaitre le bouton menu */
+	a.to_nav{
+		display: none;
+	}
+	/* faire passer le nav menu en haut */
+	#primary_nav{
+		position: absolute;
+		top: 5px;
+		right: 10px;
+		background: none;
+	}
+	/* le mettre en ligne */
+	#primary_nav li{
+		display: inline;
+	}
+	
+	#primary_nav li a{
+		float: left;
+		border: none;
+		padding: 0 10px;
+		border-radius: 2px;
+	}
+	/* enlever "top" */
+	#primary_nav li.top{
+		display: none;
+	}
 }
