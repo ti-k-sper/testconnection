@@ -8,7 +8,7 @@ $debutname=substr($username, 0, -3);
 echo "Mon profil est super sécurisé <br />";
 echo "My name is {$finname} ... {$debutname}-{$finname}...<br />";
 
-$sql = 'SELECT * FROM `user`';
+$sql = 'SELECT * FROM `users`';
 $statement = $pdo->query($sql);
 $users = $statement->fetchAll();
 
@@ -29,7 +29,7 @@ $users = $statement->fetchAll();
 				<li>
 					<!-- - <?= $user["name"] ?> mdp : <?= $user["password"] ?> -->
 					<form method="POST" action="update.php"><!-- pour modif -->
-						<input type="texte" name="username" value="<?= $user['id'] ?>">
+						<input type="texte" name="username" value="<?= $user['name'] ?>">
 						<input type="texte" name="password" placeholder="modification mdp">
 						<input type="hidden" name="id" value="<?= $user['id'] ?>">
 						<button type="submit">Modifier</button>

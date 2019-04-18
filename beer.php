@@ -20,12 +20,10 @@ $tabbeer = $statement->fetchAll();
 		<?php foreach ($tabbeer as $row): ?>
 			<article>
 			<h2><?= $row["nom"] ?></h2>
-			<em><!-- pour suppr -->
-				<form method="POST" action="deletebeer.php">
+				<form method="POST" action="deletebeer.php"><!-- pour suppr -->
 					<input type="hidden" name="id" value="<?= $row['id'] ?>">
 					<button type="submit">Supression</button>
 				</form>
-			</em>
 			<p><?= $row["description"] ?></p>
 		</article>
 		<?php endforeach; ?>

@@ -6,7 +6,7 @@ if (isset($_SESSION["connect"])) {
 	$connect = false;
 }
 if ($connect) {
-	header("Location: http://localhost/testconnection/page.php");
+	header("Location: page.php");
 	//fin traitement
 }
 $errusername="";
@@ -19,7 +19,7 @@ if(!empty($_POST)){
 	if (!empty($username) && !empty($password)) {
 		//récupération users
 		require_once 'db.php';
-		$sql = 'SELECT * FROM `user` WHERE `name`=?';
+		$sql = 'SELECT * FROM `users` WHERE `name`=?';
 		$statement = $pdo->prepare($sql);
 		$statement->execute([$username]);
 		$user = $statement->fetch();
@@ -32,7 +32,7 @@ if(!empty($_POST)){
 				//die("connecté");
 				$_SESSION["connect"] = true;
 				$_SESSION["username"] = $username;
-				header("Location: http://localhost/testconnection/page.php");//prendre url au lieu du fichier
+				header("Location: page.php");//prendre url au lieu du fichier
 				//header("Location: http://localhost/testconnection/profil.php");
 			}else{
 				header("HTTP/1.0 403 Forbidden");
@@ -64,7 +64,7 @@ if(!empty($_POST)){
 <head>
 	<meta charset="utf-8">
 	<!-- <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="assets/css/form.css">
 	<title>Formulaire de connexion</title>
 </head>

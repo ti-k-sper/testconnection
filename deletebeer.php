@@ -4,7 +4,7 @@ require 'db.php';
 
 /**
 * A ne pas utiliser sauf pour select
-* http://localhost/testconnection/deletebeer.php?id=
+* http://localhost/testconnection/deletebeer.php?id=1
 * $_GET['id']
 */
 

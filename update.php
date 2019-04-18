@@ -10,7 +10,7 @@ if(!empty($_POST)){
 	if (!empty($id)) {
 		if (!empty($username)) {
 			require_once 'db.php';
-			$sql = 'SELECT * FROM `user` WHERE `name`=?';
+			$sql = 'SELECT * FROM `users` WHERE `name`=?';
 			$statement = $pdo->prepare($sql);
 			$statement->execute([$username]);
 			$user = $statement->fetch();
@@ -19,7 +19,7 @@ if(!empty($_POST)){
 					if (strlen($password) <= 10 && strlen($password) >= 5) {
 					$password = password_hash($password, PASSWORD_BCRYPT);
 					require_once 'db.php';
-					$sql = 'UPDATE `user` SET `name` = :name, `password` = :password WHERE `users`.`id` = :id ';
+					$sql = 'UPDATE `users` SET `name` = :name, `password` = :password WHERE `users`.`id` = :id ';
 					$statement = $pdo->prepare($sql);
 					$result = $statement->execute([":name" => $username,
 												   ":password" => $password,
@@ -60,4 +60,4 @@ if(!empty($_POST)){
 	}
 }
 
-header("Location: profil.php")
+header("Location: profil.php");
